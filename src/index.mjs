@@ -23,6 +23,6 @@ app.use(vehicle);
 
 dbConnect();
 
-app.listen(PORT, () => {
-    console.log('Servidor en las nubes');
+app.listen( PORT, '0.0.0.0', function() {
+    console.log( `Servidor lanzado en http://0.0.0.0:${ PORT }` );
 });
