@@ -52,6 +52,8 @@ const getReservationById = async (req, res) => {
     }
 };
 
+// const getReservationBy
+
 const removeReservationById = async (req, res) => {
     try {
     const productId = req.params.id;

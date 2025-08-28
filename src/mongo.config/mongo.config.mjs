@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 async function dbconnection () {
     try {
-    await mongoose.connect( "mongodb://localhost:27017/hotcars" )
+    await mongoose.connect( "mongodb+srv://silvamateo:juancarlos@cluster0.8gq7clq.mongodb.net/Hot-cars-backend" )
     console.log(`te has conectado a la base de datos`)
     }
     catch( error ) {

@@ -7,7 +7,7 @@ import auth from './routes/auth.route.mjs';
 import rental from './routes/rental.routes.mjs';
 import reservation from './routes/reservation.route.mjs';
 import user from './routes/user.route.mjs';
-import vehicle from './routes/vehicle.mjs';
+import vehicle from './routes/vehicle.route.mjs';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
