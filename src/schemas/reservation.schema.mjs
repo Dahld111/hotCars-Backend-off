@@ -1,32 +1,57 @@
-import mongoose from "mongoose";
+    import mongoose from "mongoose";
 
-const reservationSchema = new mongoose.Schema({
-    name:{
+    const reservationSchema = new mongoose.Schema({
+    TravelItineraryId: {
         type: String,
-        trim: true,
-        require: true
+        required: true,
+        trim: true
     },
-    document:{
-        type: String,
-        trim: true,
-        require: true
-    },
-    pickup: {
+    PickupDate: {
         type: Date,
-        require: true
+        required: true
     },
-    dropoff: {
+    DropOffDate: {
         type: Date,
-        require: true
+        required: true
+    },
+    Vehicle: {
+        Image: { type: String, trim: true },
+        Model: { type: String, trim: true },
+        VehicleCategory: { type: String, trim: true },
+        TransmissionType: { type: String, trim: true },
+        AirConditioned: { type: Boolean }
+    },
+    PickupLocation: {
+        Address: { type: String, trim: true }
+    },
+    DropOffLocation: {
+        Address: { type: String, trim: true }
+    },
+    Driver: [{
+        FirstName: { type: String, trim: true },
+        LastName: { type: String, trim: true },
+        Email: { type: String, trim: true },
+        Phone: { type: String, trim: true },
+        NationalityDescription: { type: String, trim: true }
+    }],
+    Price: {
+        Total: { type: Number, required: true },
+        CurrencyCode: { type: String, trim: true }
+    },
+    CommentContracts: {
+        type: String
+    },
+    userId: {
+        type: String
     }
-},{
-    timestamps: true,
-    versionKey: false
-});
+    },{
+        timestamps: true,   
+        versionKey: false
+    });
 
-const reservationModel = mongoose.model(
-    "reservation",
-    reservationSchema
-);
+    const reservationModel = mongoose.model(
+        "reservation",
+        reservationSchema
+    );
 
-export default reservationSchema;
+    export default reservationModel;
