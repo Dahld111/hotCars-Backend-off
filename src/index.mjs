@@ -21,8 +21,16 @@ app.use(reservation);
 app.use(user);
 app.use(vehicle);
 
-dbConnect();
-
-app.listen( PORT, '0.0.0.0', function() {
-    console.log( `Servidor lanzado en http://0.0.0.0:${ PORT }` );
-});
+// Llama a la función de conexión y espera a que la promesa se resuelva
+dbConnect()
+  .then(() => {
+    // Si la conexión es exitosa, inicia el servidor Express
+    app.listen( PORT, '0.0.0.0', function() {
+      console.log( `Servidor lanzado en http://0.0.0.0:${ PORT }` );
+    });
+  })
+  .catch(error => {
+    // Si la conexión falla, muestra el error y detén el proceso
+    console.error('Error al conectar a la base de datos. Servidor no iniciado.', error);
+    process.exit(1); // Detiene la aplicación con un código de error
+  });
